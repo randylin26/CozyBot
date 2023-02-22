@@ -22,10 +22,8 @@ class Bot(commands.Bot):
     async def event_ready(self):
         print(f'Logged in as | {self.nick}')
         # Clear file contents on startup
-        with open("cozy.txt", 'r+') as file:
-            file.truncate(0)
-        with open("100_cozy.txt", 'r+') as file:
-            file.truncate(0)
+        file = open("cozy.txt", 'w+')
+        file = open("100_cozy.txt", 'w+')
 
     # Check if any command is on cooldown
     async def event_command_error(self, ctx, error: Exception):
